@@ -91,7 +91,6 @@ window.onload = function () {
 	const queryString = window.location.search;
 	const urlParams = new URLSearchParams(queryString);
 	const category = urlParams.get('category');
-	console.log(title, category);
 	if (category != null) {
 		document.getElementById("category").innerHTML = category;
 	}

@@ -126,10 +126,12 @@ function appendData(data) {
 	SetTitle(data);
 	data.SplitsNames.map(split => {
 		if (split in Bosses) {
-			splits.innerHTML += `<div class="row"><img src="images/${split}.svg"/><div class="name boss">${Bosses[split]}</div><div class="split">${IGTFormattedString(data.Splits[split])}</div></div>`;
 			if (split == "End") {
+				splits.innerHTML += `<div class="row"><img src="images/${Bosses[split]}.svg"/><div class="name boss">${Bosses[split]}</div><div class="split">${IGTFormattedString(data.Splits[split])}</div></div>`;
 				igt.innerHTML = IGTFormattedString(data.Splits[split]);
+				return;
 			}
+			splits.innerHTML += `<div class="row"><img src="images/${split}.svg"/><div class="name boss">${Bosses[split]}</div><div class="split">${IGTFormattedString(data.Splits[split])}</div></div>`;
 			return;
 		}
 		if (split in ProgressionItems)

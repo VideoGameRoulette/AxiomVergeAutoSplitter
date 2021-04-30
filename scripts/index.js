@@ -35,6 +35,7 @@ const Bosses = {
 
 const NameDictionary = {
 	FirstDeath: "First Death",
+	RepairDronesEnabled: "Repair Drones Enabled",
 	AddressDisruptor1: "Address Disruptor",
 	AddressDisruptor2: "Address Disruptor 2",
 	BlackCoat: "Trenchcoat",

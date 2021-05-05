@@ -124,6 +124,12 @@ function appendData(data) {
 	ClearAll();
 	console.log(data);
 	SetTitle(data);
+	GetItems(data);
+	pb.innerHTML = IGTFormattedString(data.PersonalBest);
+	document.getElementById("splits").scrollTop = document.getElementById("splits").scrollHeight;
+}
+
+function GetItems(data) {
 	data.SplitsNames.map(split => {
 		if (split in Bosses) {
 			if (split == "End") {
@@ -171,12 +177,19 @@ function appendData(data) {
 			splits.innerHTML += `<div class="row"><img src="images/RangeNode.svg"/><div class="name">${split}</div><div class="split">${IGTFormattedString(data.Splits[split])}</div></div>`;
 			return;
 		}
+		if (split == "DRONEGOMODE")
+		{
+			splits.innerHTML += `<div class="gomode"><div class="preline"></div><div class="type">DRONE GO MODE</div><div class="postline"></div></div>`
+			return;
+		}
+		if (split == "GRAPPLEGOMODE")
+		{
+			splits.innerHTML += `<div class="gomode"><div class="preline"></div><div class="type">GRAPPLE GO MODE</div><div class="postline"></div></div>`
+			return;
+		}
 		splits.innerHTML += `<div class="row"><img src="images/${split}.svg"/><div class="name">${NameDictionary[split]}</div><div class="split">${IGTFormattedString(data.Splits[split])}</div></div>`;
 	});
-	pb.innerHTML = IGTFormattedString(data.PersonalBest);
-	document.getElementById("splits").scrollTop = document.getElementById("splits").scrollHeight;
 }
-
 function IGTFormattedString(timestamp) {
 	var totalMilliseconds = (timestamp * 1000) / 60;
 	var milliseconds = totalMilliseconds % 1000;
